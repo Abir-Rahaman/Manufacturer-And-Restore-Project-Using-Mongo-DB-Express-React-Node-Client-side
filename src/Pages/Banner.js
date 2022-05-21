@@ -7,7 +7,7 @@ const Banner = () => {
         <section  style={{
             background: `url(${bg})`,
             backgroundRepeat:'no-repeat'
-        }}    className="">
+        }}    className=" py-56">
         <div class="hero mt-20">
         <div class="hero-content flex-col lg:flex-row-reverse mx-auto  ">
             <div className="w-full">
