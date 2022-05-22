@@ -3,7 +3,7 @@ import logo from '../../Asset/logo.png'
 
 const Nav = () => {
     return (
-        <div className="navbar bg-purple-300 py-5 lg:px-44">
+        <div className="navbar bg-purple-300 py-5 px-44">
             <div className="navbar-start">
                 <div className="dropdown">
                 <label tabindex="0" className="btn btn-ghost lg:hidden">
