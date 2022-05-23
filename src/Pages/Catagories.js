@@ -12,7 +12,7 @@ const Catagories = () => {
     return (
         <>
         <h1 className='mt-24 text-center text-4xl font-bold text-primary' > Some Unique & Expensive Products </h1>
-        <div class="hero mt-[-150px]">
+        <div class="hero mt-[-100px]">
         <div class="hero-content m-0 p-0 flex-col lg:flex-row-reverse ">     
         <div  class="carousel rounded-2xl">
                 <div style={{ height:'500px'}} id="slide1" class="carousel-item relative w-full  ">
@@ -74,7 +74,7 @@ const Catagories = () => {
                 </div>
             <div>
             <div  class="drawer drawer-mobile"> 
-                <div class="lg:mt-24">
+                <div class="mt-24">
                     <ul class="menu  px-4 h-fit pt-6 w-80 mt-24 bg-base-300 items-center rounded-2xl ">
                     <li  className='bg-primary w-full rounded-full text-white font-bold  mb-5'><a> <img src={list} alt="" /> Catagories</a></li>
                     <li  className='bg-black text-white mb-6 w-full rounded-full  '><a>  <img src={tag} alt="" /> Graphics Card </a></li>

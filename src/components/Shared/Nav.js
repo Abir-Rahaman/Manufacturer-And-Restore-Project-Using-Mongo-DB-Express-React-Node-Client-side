@@ -8,7 +8,9 @@ const Nav = () => {
     <li><Link to="/">computer</Link></li>
     <li><Link to="/review">Review</Link></li>
     <li><Link to="/contact">Contact</Link></li>
-    <li><Link to="/about">About</Link></li>
+    <li><Link to="/logIn">Log In</Link></li>
+    <li><Link to="/signIn">Register</Link></li>
+
     </>
     return (
         <div className="navbar bg-purple-300 py-5 px-44">

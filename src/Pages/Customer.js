@@ -8,7 +8,7 @@ import wp from '../Asset/whatsapp.png'
 const Customer = () => {
     return (
       <> 
-        <h1 className='font-bold text-4xl text-center text-primary lg:ml-40 '>Contact Info</h1>
+        <h1 className='font-bold text-4xl text-center text-primary mb-10'>Any Problem With Our Gadget Just Contact Us </h1>
         <div class="card flex px-16">
 
         <div className="flex">
