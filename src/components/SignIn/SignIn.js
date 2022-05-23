@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth'
 import { useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
@@ -12,6 +12,7 @@ import fb from '../../Asset/facebook.png'
 
 
 const SignIn = () => {
+    let location = useLocation();
     const [createUserWithEmailAndPassword,user,loading,error,] = useCreateUserWithEmailAndPassword(auth);
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
@@ -41,6 +42,7 @@ const SignIn = () => {
     //    navigate("/")
 
     };
+    let from = location.state?.from?.pathname || "/";
     return (
         <div className="flex justify-center lg:mr-64 lg:py-20">
             <img className='hidden lg:block' src={signin} alt="" />

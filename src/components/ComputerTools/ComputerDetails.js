@@ -1,7 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const ComputerDetails = ({computer}) => {
-    const {name,picture,price,minimum,quantity,description,} = computer;
+    const navigate = useNavigate()
+    const {_id,name,picture,price,minimum,quantity,description,} = computer;
+    const navigateToUpdate = id =>{
+        navigate(`/computer/${id}`)
+    }
 
     return (
         <div class="card w-96 bg-base-100 shadow-2xl ">
@@ -15,7 +20,7 @@ const ComputerDetails = ({computer}) => {
                 <p className='font-bold'> <span className='text-primary'> Information:</span>  <br />{description} </p>
                 <p className='font-bold'>  Price ${price}  </p>
                 <div class="card-actions">
-                <button class="btn btn-primary">Book Now</button>
+                <button onClick={()=>navigateToUpdate(_id)} class="btn btn-primary">Book Now</button>
             </div>
         </div>
         </div>

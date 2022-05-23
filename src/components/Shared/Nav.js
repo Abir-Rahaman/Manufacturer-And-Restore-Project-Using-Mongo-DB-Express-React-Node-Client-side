@@ -1,14 +1,18 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import logo from '../../Asset/logo.png'
+import auth from '../../firebase.init';
 
 const Nav = () => {
+    const [user] = useAuthState(auth)
     const menuItems = <>
     <li><Link to="/">Home</Link></li>
-    <li><Link to="/">computer</Link></li>
+    <li><Link to="/computer">computer</Link></li>
     <li><Link to="/review">Review</Link></li>
     <li><Link to="/contact">Contact</Link></li>
-    <li><Link to="/logIn">Log In</Link></li>
+    <li><Link to="/login">Log In</Link></li>
     <li><Link to="/signIn">Register</Link></li>
 
     </>
@@ -40,6 +44,15 @@ const Nav = () => {
                     <span className="badge badge-xs badge-primary indicator-item"></span>
                 </div>
                 </button>
+                <span className='text-white pe-2 outline-danger '> {user?.displayName && user.displayName} </span>
+               {
+                   user?.uid ?
+                    <Link to='/login'> <button onClick={() => signOut(auth)} className="btn btn-primary bg-primary rounded-full px-5 py-2 rounded-pill fw-bolder" type="submit"> Sign Out </button> </Link>
+                    
+                    : 
+                    <Link to='/login'> <button className="btn btn-primary bg-primary rounded-full px-5 py-2 rounded-pill fw-bolder" type="submit">Log In</button> </Link>
+               }
+            
             </div>
             </div>
     );
