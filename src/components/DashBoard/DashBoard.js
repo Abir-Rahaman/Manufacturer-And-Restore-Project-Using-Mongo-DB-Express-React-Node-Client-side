@@ -1,7 +1,12 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, Outlet } from 'react-router-dom';
+import auth from '../../firebase.init';
+import useAdmin from './../../hooks/useAdmin';
 
 const DashBoard = () => {
+  const [user]=useAuthState(auth)
+  const [admin] = useAdmin(user)
     return (
         <div class="drawer drawer-mobile">
         <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
@@ -19,6 +24,10 @@ const DashBoard = () => {
             <li  className='bg-primary w-full rounded-full text-white font-bold  mb-5'><a> <img src='{list}' alt="" /> Dashboard </a></li>
             <li  className='bg-black text-center text-white mb-6 w-full rounded-full  '><a>  <img src='' alt="" /> <Link to='/dashboard' > My Order </Link> </a></li>
             <li  className='bg-black text-white mb-6 w-full rounded-full  '><a>  <img src='' alt="" /> <Link to='/dashboard/review' > My Review </Link> </a></li>
+    
+            { admin && <li  className='bg-black text-white mb-6 w-full rounded-full  '><a>  <img src='' alt="" /> <Link to='/dashboard/user' > All Users </Link> </a></li>
+            }
+            
             <li  className='bg-black text-white mb-6 w-full rounded-full  '><a> <img src='' alt="" /> Drone Camera </a></li>
             <li  className='bg-black text-white mb-6 w-full rounded-full '><a> <img src='{tag}' alt="" /> Spy Camera Watch</a></li>
             <li  className='bg-black text-white mb-6 w-full rounded-full '><a> <img src='{tag}' alt="" /> Gaming Console</a></li>

@@ -18,7 +18,33 @@ const MyOrder = () => {
  
     return (
         <div>
-            <h1> My Order : {bookings.length} </h1>
+            <h1 className='text-xl font-bold text-primary  text-center my-14'> My Order : {bookings.length} </h1>
+            <div class="overflow-x-auto">
+                <table class="table table-zebra w-full">
+                    {/* <!-- head --> */}
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>Client Name</th>
+                        <th>Client Email</th>
+                        <th>Product Name</th>
+                        <th>Product Price</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            bookings.map((booking,index)=><tr>
+                                <th>{index+1}</th>
+                                <td> {user.displayName} </td>
+                                <td>{user.email} </td>
+                                <td> {booking.productName} </td>
+                                <td> {booking.productPrice} </td>
+                            </tr>)
+                        }
+                  
+                    </tbody>
+                </table>
+                </div>
         </div>
     );
 };

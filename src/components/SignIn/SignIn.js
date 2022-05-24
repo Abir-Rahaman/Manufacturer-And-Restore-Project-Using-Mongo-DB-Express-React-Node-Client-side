@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth'
 import { useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
@@ -8,41 +8,41 @@ import Loading from '../Shared/Loading';
 import signin from '../../Asset/signin.png'
 import add from '../../Asset/add.png'
 import fb from '../../Asset/facebook.png'
+import useToken from '../../hooks/useToken';
+
 
 
 
 const SignIn = () => {
-    let location = useLocation();
-    const [createUserWithEmailAndPassword,user,loading,error,] = useCreateUserWithEmailAndPassword(auth);
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+    const { register, formState: { errors }, handleSubmit } = useForm();
+    const [createUserWithEmailAndPassword,user,loading,error,] = useCreateUserWithEmailAndPassword(auth);
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
     const navigate = useNavigate()
-    
-    const { register, formState: { errors }, handleSubmit } = useForm();
+    const [token] =useToken(googleUser ||user )
+  
 
     let customError;
 
     if(loading || googleLoading){
         return <Loading></Loading>
     }
-    if(googleUser){
-      console.log(googleUser);
-    }
+  
    
     if(error || updateError ||googleError){
         customError= <p className='font-bold text-red-800 text-center'> <small> {error?.message || updateError.message} </small> </p>
 
     }
+    if(token){
+        navigate('/')
+    }
 
     const onSubmit =async data => {
-        // console.log(data)
        await createUserWithEmailAndPassword( data.email , data.password);
        await updateProfile({displayName:data.name})
-       console.log(updateProfile);
-    //    navigate("/")
-
+ 
     };
-    let from = location.state?.from?.pathname || "/";
+   
     return (
         <div className="flex justify-center lg:mr-64 lg:py-20">
             <img className='hidden lg:block' src={signin} alt="" />
