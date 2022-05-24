@@ -9,15 +9,18 @@ const Nav = () => {
     const [user] = useAuthState(auth)
     const menuItems = <>
     <li><Link to="/">Home</Link></li>
-    <li><Link to="/computer">computer</Link></li>
+    {
+        user &&   <li><Link to="/dashboard">Dashboard</Link></li>
+    }
     <li><Link to="/review">Review</Link></li>
     <li><Link to="/contact">Contact</Link></li>
     <li><Link to="/login">Log In</Link></li>
     <li><Link to="/signIn">Register</Link></li>
+   
 
     </>
     return (
-        <div className="navbar bg-purple-300 py-5 px-44">
+        <div className="navbar bg-purple-300 py-5 lg:px-44">
             <div className="navbar-start">
                 <div className="dropdown">
                 <label tabindex="0" className="btn btn-ghost lg:hidden">
@@ -48,10 +51,15 @@ const Nav = () => {
                {
                    user?.uid ?
                     <Link to='/login'> <button onClick={() => signOut(auth)} className="btn btn-primary bg-primary rounded-full px-5 py-2 rounded-pill fw-bolder" type="submit"> Sign Out </button> </Link>
-                    
                     : 
                     <Link to='/login'> <button className="btn btn-primary bg-primary rounded-full px-5 py-2 rounded-pill fw-bolder" type="submit">Log In</button> </Link>
                }
+              
+               <div className="navbar-start">
+               <label for="my-drawer-2" tabindex="1"  className="btn btn-ghost lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                </label>
+               </div>
             
             </div>
             </div>
