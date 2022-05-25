@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import { ToastContainer } from 'react-toastify';
 import Booking from './components/Booking/Booking';
 import Home from './components/Home/Home';
 import LogIn from './components/LogIn/LogIn';
@@ -7,7 +8,6 @@ import RequireAuth from './components/RequireAuth/RequireAuth';
 import Footer from './components/Shared/Footer';
 import Nav from './components/Shared/Nav';
 import SignIn from './components/SignIn/SignIn';
-import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import DashBoard from './components/DashBoard/DashBoard';
 import MyOrder from './components/DashBoard/MyOrder';
