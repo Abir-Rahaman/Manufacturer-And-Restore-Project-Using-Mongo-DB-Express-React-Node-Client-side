@@ -25,7 +25,11 @@ const DashBoard = () => {
             <li  className='bg-black text-center text-white mb-6 w-full rounded-full  '><a>  <img src='' alt="" /> <Link to='/dashboard' > My Order </Link> </a></li>
             <li  className='bg-black text-white mb-6 w-full rounded-full  '><a>  <img src='' alt="" /> <Link to='/dashboard/review' > My Review </Link> </a></li>
     
-            { admin && <li  className='bg-black text-white mb-6 w-full rounded-full  '><a>  <img src='' alt="" /> <Link to='/dashboard/user' > All Users </Link> </a></li>
+            { admin && <>
+              <li  className='bg-black text-white mb-6 w-full rounded-full  '><a>  <img src='' alt="" /> <Link to='/dashboard/user' > All Users </Link> </a></li>
+              <li  className='bg-black text-white mb-6 w-full rounded-full  '><a>  <img src='' alt="" /> <Link to='/dashboard/parts' > Add Parts & Tools  </Link> </a></li>
+            
+            </>
             }
             
             <li  className='bg-black text-white mb-6 w-full rounded-full  '><a> <img src='' alt="" /> Drone Camera </a></li>

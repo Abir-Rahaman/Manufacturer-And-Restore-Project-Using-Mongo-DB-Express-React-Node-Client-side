@@ -14,6 +14,7 @@ import MyOrder from './components/DashBoard/MyOrder';
 import MyReview from './components/DashBoard/MyReview';
 import AllUsers from './components/DashBoard/AllUsers';
 import RequireAdmin from './components/RequireAuth/RequireAdmin';
+import AddParts from './components/DashBoard/AddParts';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
          <Route index element={<MyOrder></MyOrder>}></Route>
          <Route  path='review' element={<MyReview></MyReview>}></Route>
          <Route  path='user' element={<RequireAdmin><AllUsers></AllUsers></RequireAdmin>}></Route>
+         <Route  path='parts' element={<RequireAdmin><AddParts></AddParts></RequireAdmin>}></Route>
         </Route>  
        <Route path="/signIn" element={<SignIn />} />
        <Route path="/login" element={<LogIn />} />
