@@ -73,6 +73,25 @@ const CheckoutForm = ({paid}) => {
               setCardError("")
               setTransaction(paymentIntent.id)
               setSuccess(`Congratulation,${UserName} Your Payment Is successfully Completed`)
+
+              const payment={
+                booking:productId,
+                transactionId:paymentIntent.id
+
+              }
+              fetch(`http://localhost:4000/booking/${productId}`,{
+                method:"PATCH",
+                headers:{
+                  "content-type":"application/json",
+                  authorization:`Bearer ${localStorage.getItem('token')}`
+                },
+                body:JSON.stringify(payment)
+              }).then(res => res.json())
+              .then(data =>{
+                console.log(data);
+                setProcessing(false)
+    
+              })
           }
   
       
