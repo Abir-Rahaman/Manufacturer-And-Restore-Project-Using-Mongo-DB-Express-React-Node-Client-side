@@ -4,6 +4,7 @@ import Catagories from '../../Pages/Catagories';
 import Customer from '../../Pages/Customer';
 import Summery from '../../Pages/Summery';
 import ComputerTools from '../ComputerTools/ComputerTools';
+import Review from './../Review/Review';
 
 const Home = () => {
     return (
@@ -13,6 +14,7 @@ const Home = () => {
             <Catagories></Catagories>
             <Customer></Customer>
             <Summery></Summery>
+            <Review></Review>
         </div>
     );
 };

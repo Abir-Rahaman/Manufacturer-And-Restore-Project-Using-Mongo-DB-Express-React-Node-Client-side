@@ -32,10 +32,6 @@ const DashBoard = () => {
             </>
             }
             
-            <li  className='bg-black text-white mb-6 w-full rounded-full  '><a> <img src='' alt="" /> Drone Camera </a></li>
-            <li  className='bg-black text-white mb-6 w-full rounded-full '><a> <img src='{tag}' alt="" /> Spy Camera Watch</a></li>
-            <li  className='bg-black text-white mb-6 w-full rounded-full '><a> <img src='{tag}' alt="" /> Gaming Console</a></li>
-            <li  className='bg-black text-white mb-6 w-full rounded-full '><a> <img src='{tag}' alt="" /> RGB Cooling Fan </a></li>
             </ul>
         
         </div>
