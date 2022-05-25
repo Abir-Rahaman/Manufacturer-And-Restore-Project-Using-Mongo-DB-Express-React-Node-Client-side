@@ -10,7 +10,7 @@ const DashBoard = () => {
     return (
         <div class="drawer drawer-mobile">
         <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-        <div class="drawer-content flex flex-col items-center mt-14">
+        <div class="drawer-content flex flex-col items-center mt-14" >
             <h2 className='text-4xl font-bold text-primary'> WellCome To Dashboard </h2>
           {/* <!-- Page content here --> */}
           <Outlet></Outlet>

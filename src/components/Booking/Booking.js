@@ -45,13 +45,13 @@ const Booking = () => {
     
     }
     return (
-        <div className='' style={{
+        <div className='w-full' style={{
             background: `url(${bgsell})`,
             backgroundRepeat:'no-repeat',
             backgroundSize:'1910px 900px'
         }} >
            
-            <form onSubmit={handleBook} className='grid grid-cols-1 gap-2 justify-items-center py-20 lg:pr-96'>
+            <form onSubmit={handleBook} className='grid grid-cols-1 gap-2 justify-items-center  w-full py-20 lg:pr-96'>
             <label className="label">
                     <span className="label-text font-bold text-primary"> Buyer Name </span>
                 </label>
