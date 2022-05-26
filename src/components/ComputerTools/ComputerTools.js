@@ -1,13 +1,9 @@
-import React, { useEffect, useState } from 'react';
+
 import ComputerDetails from './ComputerDetails';
+import useTools from './../../hooks/useTools';
 
 const ComputerTools = () => {
-    const [computers,setComputers] = useState([]);
-    useEffect(()=>{
-        fetch("http://localhost:4000/computer")
-        .then(res => res.json())
-        .then(data => setComputers(data));
-    },[])
+   const {computers}= useTools();
     return (
         <div className=''>
         <h1 className='text-center text-3xl font-bold mt-5 pt-5' > <span className='banner'>Some Products From Our manufacturers Outlet  </span> </h1>

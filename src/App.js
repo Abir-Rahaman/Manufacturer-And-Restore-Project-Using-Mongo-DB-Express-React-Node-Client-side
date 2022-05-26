@@ -17,6 +17,7 @@ import RequireAdmin from './components/RequireAuth/RequireAdmin';
 import AddParts from './components/DashBoard/AddParts';
 import Payment from './components/DashBoard/Payment';
 import MyProfile from './components/DashBoard/MyProfile';
+import ManageProducts from './components/DashBoard/ManageProducts';
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
          <Route  path='payment/:id' element={<Payment></Payment>}></Route>
          <Route  path='user' element={<RequireAdmin><AllUsers></AllUsers></RequireAdmin>}></Route>
          <Route  path='parts' element={<RequireAdmin><AddParts></AddParts></RequireAdmin>}></Route>
+         <Route  path='manage' element={<RequireAdmin><ManageProducts></ManageProducts></RequireAdmin>}></Route>
         </Route>  
        <Route path="/signIn" element={<SignIn />} />
        <Route path="/login" element={<LogIn />} />
