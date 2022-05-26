@@ -18,6 +18,9 @@ import AddParts from './components/DashBoard/AddParts';
 import Payment from './components/DashBoard/Payment';
 import MyProfile from './components/DashBoard/MyProfile';
 import ManageProducts from './components/DashBoard/ManageProducts';
+import NotFound from './components/NotFound.js/NotFound';
+import Blogs from './components/Blogs/Blogs';
+import MyPortfolio from './components/MyPortfolio/MyPortfolio';
 
 
 function App() {
@@ -26,6 +29,7 @@ function App() {
      <Nav></Nav>
      <Routes>
        <Route path='/' element={<Home></Home>}></Route>
+       <Route path="/portfolio" element={<MyPortfolio/>} />
        <Route path='/computer/:id' element={<RequireAuth> <Booking></Booking></RequireAuth>}></Route>  
        <Route path='/dashboard' element={<RequireAuth> <DashBoard></DashBoard></RequireAuth>}>
          <Route index element={<MyOrder></MyOrder>}></Route>
@@ -37,10 +41,13 @@ function App() {
          <Route  path='manage' element={<RequireAdmin><ManageProducts></ManageProducts></RequireAdmin>}></Route>
         </Route>  
        <Route path="/signIn" element={<SignIn />} />
+       <Route path="/blog" element={<Blogs />} />
        <Route path="/login" element={<LogIn />} />
+       <Route path="*" element={<NotFound></NotFound> } ></Route>
      </Routes>
      <ToastContainer />
      <Footer></Footer>
+
     
     </div>
   );

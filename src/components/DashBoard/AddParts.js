@@ -1,14 +1,11 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 
-
-
-
 const AddParts = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const imageStorageKey='69fb380d3c03cfe1603dcae97afcc89a'
-    const onSubmit =async data => {
-        // console.log(data)
+    const onSubmit = (data) => {
+        // console.log()
         const image = data.picture[0]
         const formData = new FormData();
         formData.append('image', image);
@@ -22,7 +19,7 @@ const AddParts = () => {
         .then(result => {
             if(result.success){
                 const img = result.data.url;
-                const tools ={
+                const computerTools ={
                     picture:img,
                     name:data.name,
                     minimum:data.minimum,
@@ -30,16 +27,19 @@ const AddParts = () => {
                     price:data.price,
                     description:data.description,
                 }
-                fetch('http://localhost:4000/tools',{
+                console.log(computerTools);
+
+                fetch('http://localhost:4000/computer',{
                     method:"POST",
                     headers:{
                         'content-type':'application/json'
                     },
-                    body:JSON.stringify(tools)
+                    body:JSON.stringify(computerTools)
                 })
                 .then(res=> res.json())
                 .then(inserted => {
-                    console.log('done',inserted);
+                    console.log(inserted);
+                    // console.log('done',inserted)
                 })
 
             }

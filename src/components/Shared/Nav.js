@@ -9,11 +9,11 @@ const Nav = () => {
     const [user] = useAuthState(auth)
     const menuItems = <>
     <li><Link to="/">Home</Link></li>
+    <li><Link to="/portfolio">My Portfolio</Link></li>
     {
         user &&   <li><Link to="/dashboard">Dashboard</Link></li>
     }
-    <li><Link to="/review">Review</Link></li>
-    <li><Link to="/contact">Contact</Link></li>
+    <li><Link to="/blog">Blogs</Link></li>
     <li><Link to="/login">Log In</Link></li>
     <li><Link to="/signIn">Register</Link></li>
    
