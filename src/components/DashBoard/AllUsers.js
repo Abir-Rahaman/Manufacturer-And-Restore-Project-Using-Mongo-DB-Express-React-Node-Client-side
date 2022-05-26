@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useQuery } from 'react-query';
-import Loading from '../Shared/Loading';
 import RowUser from './RowUser'
 
 

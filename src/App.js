@@ -16,6 +16,7 @@ import AllUsers from './components/DashBoard/AllUsers';
 import RequireAdmin from './components/RequireAuth/RequireAdmin';
 import AddParts from './components/DashBoard/AddParts';
 import Payment from './components/DashBoard/Payment';
+import MyProfile from './components/DashBoard/MyProfile';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
        <Route path='/dashboard' element={<RequireAuth> <DashBoard></DashBoard></RequireAuth>}>
          <Route index element={<MyOrder></MyOrder>}></Route>
          <Route  path='review' element={<MyReview></MyReview>}></Route>
+         <Route  path='profile' element={<MyProfile></MyProfile>}></Route>
          <Route  path='payment/:id' element={<Payment></Payment>}></Route>
          <Route  path='user' element={<RequireAdmin><AllUsers></AllUsers></RequireAdmin>}></Route>
          <Route  path='parts' element={<RequireAdmin><AddParts></AddParts></RequireAdmin>}></Route>

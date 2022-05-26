@@ -22,6 +22,7 @@ const DashBoard = () => {
           <ul class="menu  px-6 h-fit pt-6 w-80 mt-24 bg-base-300 items-center rounded-2xl lg:ml-12">
 
             <li  className='bg-primary w-full rounded-full text-white font-bold  mb-5'><a> <img src='{list}' alt="" /> Dashboard </a></li>
+            <li  className='bg-black text-white mb-6 w-full rounded-full  '><a>  <img src='' alt="" /> <Link to='/dashboard/profile' > My Profile </Link> </a></li>
             <li  className='bg-black text-center text-white mb-6 w-full rounded-full  '><a>  <img src='' alt="" /> <Link to='/dashboard' > My Order </Link> </a></li>
             <li  className='bg-black text-white mb-6 w-full rounded-full  '><a>  <img src='' alt="" /> <Link to='/dashboard/review' > My Review </Link> </a></li>
     
