@@ -29,7 +29,7 @@ const AddParts = () => {
                 }
                 console.log(computerTools);
 
-                fetch('http://localhost:4000/computer',{
+                fetch('https://ancient-badlands-88778.herokuapp.com/computer',{
                     method:"POST",
                     headers:{
                         'content-type':'application/json'

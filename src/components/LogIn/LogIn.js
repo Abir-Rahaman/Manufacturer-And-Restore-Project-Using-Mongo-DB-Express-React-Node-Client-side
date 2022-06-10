@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
@@ -11,18 +11,16 @@ import tag from '../../Asset/user.png'
 
 
 const LogIn = () => {
-   
     let navigate = useNavigate();
     let location = useLocation();
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
     const [signInWithEmailAndPassword, user,loading,error,] = useSignInWithEmailAndPassword(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
+
     let from = location.state?.from?.pathname || "/";
-    useEffect( () =>{
-        if (user || googleUser) {
-            navigate(from, { replace: true });
-        }
-    }, [])
+    if (user || googleUser) {
+        navigate(from, { replace: true });
+    }
 
     let customError;
 
@@ -40,6 +38,8 @@ const LogIn = () => {
         signInWithEmailAndPassword(data.email , data.password);
     };
  
+  
+  
    
    
     return (

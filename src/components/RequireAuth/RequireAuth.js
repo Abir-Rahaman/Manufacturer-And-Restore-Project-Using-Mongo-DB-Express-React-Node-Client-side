@@ -16,7 +16,7 @@ import Loading from '../Shared/Loading';
 
 
 const RequireAuth = ({children}) => {
-  const navigate = useNavigate()
+ 
     const location = useLocation()
     const [user,loading] = useAuthState(auth)
 
@@ -25,7 +25,7 @@ const RequireAuth = ({children}) => {
     }
     
     if (!user) {
-      return <Navigate to="/login" state={{ from: location }} replace></Navigate>
+      return <Navigate to="/login" state={{ from: location }} replace />;
       }
     
     return children;

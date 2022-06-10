@@ -14,7 +14,7 @@ const CheckoutForm = ({paid}) => {
     const {productPrice,UserName,bookingEmail,productId }=paid;
 
     useEffect(()=>{
-        fetch("http://localhost:4000/create-payment-intent",{
+        fetch("https://ancient-badlands-88778.herokuapp.com/create-payment-intent",{
         method:"POST",
         headers:{
           "content-type":"application/json",
@@ -79,7 +79,7 @@ const CheckoutForm = ({paid}) => {
                 transactionId:paymentIntent.id
 
               }
-              fetch(`http://localhost:4000/booking/${productId}`,{
+              fetch(`https://ancient-badlands-88778.herokuapp.com/booking/${productId}`,{
                 method:"PATCH",
                 headers:{
                   "content-type":"application/json",

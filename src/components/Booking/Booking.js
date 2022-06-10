@@ -13,7 +13,7 @@ const Booking = () => {
     const [ tools, setTools] = useState({});
     const {name,price,quantity,minimum,_id} = tools;
     useEffect(()=>{
-        const url=`http://localhost:4000/computer/${id}`
+        const url=`https://ancient-badlands-88778.herokuapp.com/computer/${id}`
         fetch(url)
         .then(res => res.json())
         .then(data => setTools(data));
@@ -37,7 +37,7 @@ const Booking = () => {
         }
         if(need>=booking.minimumQuantity && need<=booking.productQuantity)
         {
-        fetch('http://localhost:4000/booking', {
+        fetch('https://ancient-badlands-88778.herokuapp.com/booking', {
             method: 'POST',
             headers:{
                 'content-type':'application/json'
@@ -50,30 +50,26 @@ const Booking = () => {
             .then(data => {
                 console.log(data);
                 toast.success("done")
+                const newQuantity = parseInt(quantity)-parseInt(need)
+                console.log(newQuantity);
+                const updateQuantity= {newQuantity};
+                    const url=`https://ancient-badlands-88778.herokuapp.com/tools/${id}`
+                    fetch(url,{
+                        method:"PUT",
+                        headers: {
+                            'Content-Type': 'application/json',
+                          },
+                          body: JSON.stringify(updateQuantity),
+        
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        setReload(!isReload);
+                    console.log('Success:', data);
+                    })
                  
             });
-            const newQuantity = parseInt(quantity)-parseInt(need)
-            console.log(newQuantity);
-            const updateQuantity= {newQuantity};
-            if(!quantity){
-                console.log("added")
-            }
-            else{
-                const url=`http://localhost:4000/tools/${id}`
-                fetch(url,{
-                    method:"PUT",
-                    headers: {
-                        'Content-Type': 'application/json',
-                      },
-                      body: JSON.stringify(updateQuantity),
-    
-                })
-                .then(response => response.json())
-                .then(data => {
-                    setReload(!isReload);
-                console.log('Success:', data);
-                })
-            }  
+           
 
         }
         else{

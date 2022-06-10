@@ -5,7 +5,7 @@ import ManageProductsDetails from './ManageProductsDetails';
 const ManageProducts = () => {
     const [allcomputers,setAllComputers] = useState([]);
     useEffect(()=>{
-        fetch("http://localhost:4000/allComputer")
+        fetch("https://ancient-badlands-88778.herokuapp.com/allComputer")
         .then(res => res.json())
         .then(data => setAllComputers(data));
     },[])

@@ -5,7 +5,7 @@ const ManageProductsDetails = ({computer,index}) => {
     const {_id,name,minimum,quantity,description,price} = computer;
 
     const handleDelete = id =>{
-        fetch(`http://localhost:4000/tools/${id}`,{
+        fetch(`https://ancient-badlands-88778.herokuapp.com/tools/${id}`,{
             method:"DELETE",
         })
         .then(res => res.json())

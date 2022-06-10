@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth'
 import { useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
@@ -8,18 +8,26 @@ import Loading from '../Shared/Loading';
 import signin from '../../Asset/signin.png'
 import add from '../../Asset/add.png'
 import fb from '../../Asset/facebook.png'
-import useToken from '../../hooks/useToken';
+
 
 
 
 
 const SignIn = () => {
+    let location = useLocation();
+    let navigate = useNavigate();
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [createUserWithEmailAndPassword,user,loading,error,] = useCreateUserWithEmailAndPassword(auth);
-    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
-    const navigate = useNavigate()
-    const [token] =useToken(googleUser ||user )
+    const [updateProfile, updateError] = useUpdateProfile(auth);
+  
+    
+    let from = location.state?.from?.pathname || "/";
+    if (user || googleUser) {
+        navigate(from, { replace: true });
+    }
+    
+   
   
 
     let customError;
@@ -27,21 +35,29 @@ const SignIn = () => {
     if(loading || googleLoading){
         return <Loading></Loading>
     }
+
+ 
+
+   
   
    
     if(error || updateError ||googleError){
         customError= <p className='font-bold text-red-800 text-center'> <small> {error?.message || updateError.message} </small> </p>
 
     }
-    if(token){
-        navigate('/')
-    }
+
+    // if(token){
+    //     navigate('/')
+    // }
 
     const onSubmit =async data => {
        await createUserWithEmailAndPassword( data.email , data.password);
        await updateProfile({displayName:data.name})
+       
  
     };
+
+   
    
     return (
         <div className="flex justify-center lg:mr-64 lg:py-20">

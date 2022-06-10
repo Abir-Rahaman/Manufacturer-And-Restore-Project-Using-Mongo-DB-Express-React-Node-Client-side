@@ -12,7 +12,7 @@ const MyReview = () => {
             ratings:data.ratings
         }
         console.log(Review);
-        fetch('http://localhost:4000/Review',{
+        fetch('https://ancient-badlands-88778.herokuapp.com/Review',{
                     method:"POST",
                     headers:{
                         'content-type':'application/json'

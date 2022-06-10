@@ -8,7 +8,7 @@ const MyOrder = () => {
     const [user] = useAuthState(auth);
     useEffect(()=>{
     if(user){
-            const url =`http://localhost:4000/booking?bookingEmail=${user.email}`
+            const url =`https://ancient-badlands-88778.herokuapp.com/booking?bookingEmail=${user.email}`
             fetch(url)
             .then(res => res.json())
             .then(data => {

@@ -16,10 +16,8 @@ import { signOut } from 'firebase/auth';
 
 
 const RequireAdmin = ({children}) => {
-  const navigate = useNavigate()
     const location = useLocation()
     const [user,loading] = useAuthState(auth)
-    const [admin,adminLoading] =useAdmin(user)
 
     if(loading){
        return <Loading></Loading>

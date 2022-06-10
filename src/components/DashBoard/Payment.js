@@ -9,7 +9,7 @@ const Payment = () => {
     const {id}=useParams()
     const [paid,setPaid] = useState([])
     useEffect(()=>{
-        const url = `http://localhost:4000/booking/${id}`
+        const url = `https://ancient-badlands-88778.herokuapp.com/booking/${id}`
         fetch(url)
         .then(res=> res.json())
         .then(data => setPaid(data));

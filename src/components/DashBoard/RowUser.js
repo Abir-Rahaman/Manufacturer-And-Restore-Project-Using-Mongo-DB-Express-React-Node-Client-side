@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 const RowUser = ({user,index}) => {
     const { email, role } = user;
     const makeAdmin = () => {
-        fetch(`http://localhost:4000/user/admin/${email}`, {
+        fetch(`https://ancient-badlands-88778.herokuapp.com/user/admin/${email}`,{
             method: 'PUT',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('token')}`
@@ -24,7 +24,6 @@ const RowUser = ({user,index}) => {
                     
                     toast.error('Already admin');
                 }
-
             })
     }
     return (

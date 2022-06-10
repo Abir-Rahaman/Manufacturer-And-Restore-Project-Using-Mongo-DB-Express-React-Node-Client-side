@@ -16,7 +16,7 @@ const MyProfile = () => {
             linkedin:data?.linkedin
         }
        
-        fetch('http://localhost:4000/profile',{
+        fetch('https://ancient-badlands-88778.herokuapp.com/profile',{
             method:"POST",
             headers:{
                 'content-type':'application/json'
